@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.fortune.mastermelon" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.hardwre.location.gps"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/mm_ic_launcher" android:label="@string/app_name" android:name="com.fortune.mastermelon.MastermelonApplication" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:exported="true" android:name="com.fortune.mastermelon.app.activity.MMSplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.fortune.mastermelon" android:pathPrefix="/splash" android:scheme="mastermelon"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.fortune.mastermelon.app.activity.MMIndexActivity" android:screenOrientation="portrait"/>
+        <provider android:authorities="com.fortune.mastermelon.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/paths"/>
+        </provider>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="false"/>
+        <service android:name="com.fortune.mastermelon.push.MMFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.fortune.mastermelon.app.activity.MMPermissionGuideActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.sdsqc.matermelon.core.repay.activity.MMRepayBillDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.repay.activity.MMRepayConfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.mine.activity.MMLoanRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.mine.activity.MMBankCardInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.repay.activity.MMExtendedRecordActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.repay.activity.MMExtendedTrialActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.sdsqc.matermelon.core.extension.personal.MMUserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.sdsqc.matermelon.core.extension.personal.MMAreaHierarchyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.idcard.activity.advance.IDCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.idcard.activity.advance.IDCardEditorActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sdsqc.matermelon.core.extension.idcard.activity.advance.CameraActivity" android:screenOrientation="sensorLandscape" android:theme="@style/FullScreenTheme"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.bankcard.activity.MMBankCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.bankcard.activity.MMBankListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.contact.activity.MMContactActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.livingbody.activity.MMLivingBodyGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.livingbody.activity.MMLivingBodySuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.msgapprove.activity.MMApproveStatusActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMSelectLoanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMPretendSelectLoanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.PretendRiskLevelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMApplyLoanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.LoanAgreementListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.mine.activity.MMSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.mine.activity.ExperianReportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.msgapprove.activity.MessageApproveListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.mine.activity.MMAboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMLoanDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.extension.bankcard.activity.MMUPIGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMApplyResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMApplyResultRefuseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.repay.activity.MMRepayTypeSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.sdsqc.matermelon.core.loan.activity.MMLoanResultActivity"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.account.activity.MMLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.account.activity.MMLoginVcodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.core.web.MMWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.core.web.MMAgreementWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.core.web.MMCommonWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.fortune.mastermelon.common.core.web.MMInterceptCommonWebViewActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:launchMode="singleTop" android:name="ai.advance.liveness.sdk.activity.LivenessActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.mpurse.pay.BankActivity"/>
+        <activity android:name="com.payu.magicretry.MainActivity"/>
+        <activity android:name="com.payu.custombrowser.CBActivity" android:screenOrientation="fullSensor" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:name="com.payu.custombrowser.services.SnoozeService"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.fortune.mastermelon" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.fortune.mastermelon.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.fortune.mastermelon.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:name="ai.advance.liveness.lib.LService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/EasyPermissions.Transparent"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
